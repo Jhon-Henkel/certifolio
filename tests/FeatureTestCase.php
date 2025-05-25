@@ -50,7 +50,7 @@ abstract class FeatureTestCase extends TestCase
     {
         if (empty($this->token)) {
             $useCase = new LoginUseCase();
-            $this->token = $useCase->execute($this->userEmail, $this->userPassword);
+            $this->token = $useCase->execute($this->userEmail, $this->userPassword)['token'];
         }
         return $this->token;
     }
