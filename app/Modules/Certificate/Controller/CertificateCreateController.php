@@ -27,6 +27,7 @@ class CertificateCreateController extends BaseCreateController
             'credential_url' => 'nullable|url|max:255',
             'expiration_date' => 'nullable|date',
             'issuing_organization' => 'required|string|max:255',
+            'workload' => 'required|numeric',
         ];
     }
 

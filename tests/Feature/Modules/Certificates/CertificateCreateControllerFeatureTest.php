@@ -29,6 +29,7 @@ class CertificateCreateControllerFeatureTest extends FeatureTestCase
             'credential_url' => 'https://google.com',
             'expiration_date' => '2024-01-01',
             'issuing_organization' => 'Organization Name',
+            'workload' => 10,
         ], $this->makeHeaders());
 
         $response->assertStatus(StatusCodeEnum::HttpCreated->value);
@@ -40,6 +41,7 @@ class CertificateCreateControllerFeatureTest extends FeatureTestCase
             'credential_url' => 'https://google.com',
             'expiration_date' => '2024-01-01',
             'issuing_organization' => 'Organization Name',
+            'workload' => 10,
         ]);
     }
 }

@@ -18,6 +18,7 @@ class CertificateCreateUseCase implements ICreateUseCase
             'credential_url' => $data['credential_url'],
             'expiration_date' => $data['expiration_date'],
             'issuing_organization' => $data['issuing_organization'],
+            'workload' => $data['workload'],
         ])->toArray();
     }
 }

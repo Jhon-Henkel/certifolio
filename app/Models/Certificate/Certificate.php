@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property string|null $credential_code
  * @property string|null $credential_url
  * @property string|null $credential_file_path
+ * @property float $workload
  * @property string $created_at
  * @property string|null $updated_at
  *
@@ -38,6 +39,7 @@ class Certificate extends Model
         'credential_code',
         'credential_url',
         'credential_file_path',
+        'workload',
         'created_at',
         'updated_at',
     ];
