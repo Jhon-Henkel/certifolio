@@ -6,13 +6,16 @@
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {
-        "php": "^8.2",
+        "php": "^8.4",
+        "barryvdh/laravel-snappy": "^1.0",
         "laravel/framework": "^12.0",
         "laravel/sanctum": "^4.0",
-        "laravel/tinker": "^2.10.1"
+        "laravel/tinker": "^2.10.1",
+        "sentry/sentry-laravel": "^4.7"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
+        "larastan/larastan": "3.3.0",
         "laravel/pail": "^1.2.2",
         "laravel/pint": "^1.13",
         "laravel/sail": "^1.41",
@@ -48,14 +51,12 @@
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --graceful --ansi"
         ],
-        "dev": [
-            "Composer\\Config::disableProcessTimeout",
-            "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite"
-        ],
-        "test": [
-            "@php artisan config:clear --ansi",
-            "@php artisan test"
-        ]
+        "pint": "./vendor/bin/pint --test --preset psr12",
+        "pint:fix": "./vendor/bin/pint --preset psr12",
+        "phpstan": "./vendor/bin/phpstan analyse --memory-limit=512M --configuration=./config/develop/linter/phpstan.neon",
+        "test:unit": "./vendor/bin/phpunit ./tests/Unit",
+        "test:feature": "./vendor/bin/phpunit ./tests/Feature",
+        "test:coverage": "./vendor/bin/phpunit --coverage-html ./tests/Coverage/"
     },
     "extra": {
         "laravel": {
