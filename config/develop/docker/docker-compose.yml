@@ -1,7 +1,7 @@
 services:
   cf_backend:
     container_name: "cf_backend"
-    user: admin
+    user: root
     build:
       context: .
       dockerfile: ./config/develop/docker/Dockerfile
