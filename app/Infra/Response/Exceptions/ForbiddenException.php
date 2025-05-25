@@ -4,6 +4,7 @@ namespace App\Infra\Response\Exceptions;
 
 use App\Infra\Enum\GatesAbilityEnum;
 use App\Infra\Enum\ModuleNameEnum;
+use App\Models\Certificate\Certificate;
 use App\Models\User\User;
 use Exception;
 use Illuminate\Support\Facades\Gate;
@@ -23,7 +24,8 @@ class ForbiddenException extends Exception
     {
         if (Gate::denies($ability->value, $modelName)) {
             match ($modelName) {
-                User::class => throw new self(ModuleNameEnum::getLabelPtBr(User::class)),
+                User::class => throw new self(ModuleNameEnum::getLabel(User::class)),
+                Certificate::class => throw new self(ModuleNameEnum::getLabel(Certificate::class)),
                 default => null
             };
         }
