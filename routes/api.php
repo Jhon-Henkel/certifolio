@@ -2,6 +2,7 @@
 
 use App\Infra\Route\Enum\RouteNameEnum;
 use App\Modules\Auth\Controller\Login\LoginController;
+use App\Modules\Certificate\Controller\CertificateCreateController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('auth')->group(function () {
@@ -9,7 +10,7 @@ Route::prefix('auth')->group(function () {
 });
 
 Route::prefix('v1')->middleware(['auth:sanctum'])->group(function () {
-    Route::get('test', function () {
-        return response()->json(['message' => 'Test auth route is working!']);
+    Route::prefix('certificates')->group(function () {
+        Route::post('', CertificateCreateController::class)->name(RouteNameEnum::ApiCertificateCreate);
     });
 });

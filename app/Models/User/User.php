@@ -2,6 +2,9 @@
 
 namespace App\Models\User;
 
+use App\Models\Certificate\Certificate;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
 use Laravel\Sanctum\HasApiTokens;
@@ -15,6 +18,8 @@ use Laravel\Sanctum\HasApiTokens;
  * @property string $remember_token
  * @property string $created_at
  * @property string $updated_at
+ *
+ * @property-read Collection $certificates
  *
  * @mixin Builder<User>
  */
@@ -43,5 +48,13 @@ class User extends Authenticatable
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
         ];
+    }
+
+    /**
+     * @return HasMany<Certificate, $this>
+     */
+    public function certificates(): HasMany
+    {
+        return $this->hasMany(Certificate::class, 'user_id', 'id');
     }
 }
