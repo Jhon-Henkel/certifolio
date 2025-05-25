@@ -20,18 +20,18 @@ class ValidatorRealUnitTest extends UnitTestCase
         $request = new Request();
         $request->merge(['userId' => '']);
 
-        $horusValidator = new ValidatorReal();
-        $horusValidator->validateRequest($request, ['userId' => 'required']);
+        $validator = new ValidatorReal();
+        $validator->validateRequest($request, ['userId' => 'required']);
     }
 
     #[TestDox("Testando com dados válidos")]
     public function testValidateRequestTestTwo()
     {
         $request = new Request();
-        $request->merge(['name' => 'Horus']);
+        $request->merge(['name' => 'Test']);
 
-        $horusValidator = new ValidatorReal();
-        $horusValidator->validateRequest($request, ['name' => 'required']);
+        $validator = new ValidatorReal();
+        $validator->validateRequest($request, ['name' => 'required']);
 
         $this->assertTrue(true);
     }
@@ -44,17 +44,17 @@ class ValidatorRealUnitTest extends UnitTestCase
 
         $array = ['userId' => ''];
 
-        $horusValidator = new ValidatorReal();
-        $horusValidator->validateArrayData($array, ['userId' => 'required']);
+        $validator = new ValidatorReal();
+        $validator->validateArrayData($array, ['userId' => 'required']);
     }
 
     #[TestDox("Testando com dados válidos")]
     public function testValidateArrayDataTestTwo()
     {
-        $array = ['name' => 'Horus'];
+        $array = ['name' => 'Test'];
 
-        $horusValidator = new ValidatorReal();
-        $horusValidator->validateArrayData($array, ['name' => 'required']);
+        $validator = new ValidatorReal();
+        $validator->validateArrayData($array, ['name' => 'required']);
 
         $this->assertTrue(true);
     }
