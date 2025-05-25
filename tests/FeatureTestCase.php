@@ -1,9 +1,11 @@
 <?php
 
+namespace Tests;
 
 use App\Models\User\User;
 use Illuminate\Foundation\Testing\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\DB;
 
 abstract class FeatureTestCase extends TestCase
 {

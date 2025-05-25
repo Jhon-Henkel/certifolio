@@ -18,6 +18,6 @@ abstract class BaseDeleteController extends Controller
     {
         ForbiddenException::validatePolicy(GatesAbilityEnum::Delete, $this->getModelName());
         $this->getUseCase()->execute($id);
-        return ResponseApi::renderOk();
+        return ResponseApi::renderNoContent();
     }
 }
