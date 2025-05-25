@@ -1,6 +1,6 @@
 <?php
 
-namespace Feature\Modules\Certificates;
+namespace Tests\Feature\Modules\Certificates;
 
 use App\Infra\Response\Enum\StatusCodeEnum;
 use App\Models\Certificate\Certificate;
